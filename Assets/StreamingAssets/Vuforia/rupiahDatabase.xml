@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="wolf_marker" size="5.000000 4.575000" />
+    <ImageTarget name="kukang_marker" size="5.000000 4.575000" />
+    <ImageTarget name="monyet_marker" size="5.000000 3.900000" />
+    <ImageTarget name="buaya_marker" size="5.000000 3.990000" />
     <ImageTarget name="singa_marker" size="5.000000 3.900000" />
     <ImageTarget name="992255" size="5.000000 3.900000" />
     <ImageTarget name="bear_marker" size="6.000000 4.680000" />

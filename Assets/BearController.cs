@@ -1,16 +1,50 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
+using UnityEngine.UI;
 
-public class BearController : MonoBehaviour {
+public class BearController : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private Animation anim;
+
+    private Rigidbody rb;
+
+    // Use this for initialization
+    void Start()
+    {
+        anim = GetComponent<Animation>();
+        rb = GetComponent<Rigidbody>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        float x = CrossPlatformInputManager.GetAxis("Horizontal");
+        float y = CrossPlatformInputManager.GetAxis("Vertical");
+
+        //transform.position += new Vector3(0,0,y/10);
+        //transform.position += new Vector3(x/10,0,0);
+
+        Vector3 movement = new Vector3(x, y, 0);
+
+        //enter dragon speed here!!!
+        rb.velocity = movement * 4f;
+
+        if (x != 0 && y != 0)
+        {
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.Atan2(x, y) * Mathf.Rad2Deg, transform.eulerAngles.z);
+        }
+
+        if (x != 0 || y != 0)
+        {
+            anim.Play("Bear_walk");
+        }
+        else
+        {
+            anim.Play("Bear_idle");
+        }
+    }
 }
